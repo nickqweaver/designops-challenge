@@ -51,7 +51,12 @@ export const MyComponent = () => {
 
 - Create a userCard.js file inside the src/components/userCard directory
 - Export the component as `UserCard`
-- The `UserCard` should take in the following props: -`profileImage` -`firstName` -`lastName` -`age` -`setActiveUserIndex`
+- The `UserCard` should take in the following props:
+      -`profileImage`
+      -`firstName`
+      -`lastName`
+      -`age`
+      -`setActiveUserIndex`
 - Create a userCard.css file inside the src/components/userCard directory and import it into the `UserCard`
 - Import the following components from the src/components directory
 
@@ -78,7 +83,14 @@ export const MyComponent = () => {
           />
 ```
 
-- The inner elements should be positioned the following way: - 32px from the top of the `Card` to the top of the `Avatar` - 16px from the bottom of the `Avatar` to the top of the first `Text` component - 8px from the bottom of the first `Text` component to the second one - 16px from the bottom of the second `Text` component to the top of the button - 16px from the bottom of the `Button` to the bottom of the `Card` - All of them should be centered horizontally
+- The inner elements should be positioned the following way:
+    - 32px from the top of the `Card` to the top of the `Avatar`
+    - 16px from the bottom of the `Avatar` to the top of the first `Text` component
+    - 8px from the bottom of the first `Text` component to the second one
+    - 16px from the bottom of the second `Text` component to the top of the button
+    - 16px from the bottom of the `Button` to the bottom of the `Card`
+    - All of them should be centered horizontally
+    
 - An image of the finished userCard can be found at src/assets/userCard.png
 
 ### 2. Display the UserCards in a Grid
@@ -130,5 +142,5 @@ export const MyComponent = () => {
 
 - The expanded user card is almost complete, we just need to display the users top 5 rated people they are following
 - The users following array stores objects with id, name, profileImage and rating keys, find the top 5 rated friends in this array
-- Map over these top 5 users inside the <div> with the className="topFriendsList" (There is a note here with instructions on what to return for each friend)
+- Map over these top 5 users inside the ```<div>``` with the ```className="topFriendsList"``` (There is a note here with instructions on what to return for each  friend)
 - An image of the finished expandedCard can be found at src/assets/expandedCardFinished.png
