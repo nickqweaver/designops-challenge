@@ -1,3 +1,5 @@
+# SendOutCards Design Ops Challenge
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -9,60 +11,127 @@ In the project directory, you can run:
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Notes
 
-### `yarn test`
+- All of the pre built components can be found in the src/components directory
+- Users data can be found in src/data directory
+- Screenshots of the finished project can be found in the src/assets directory
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Guidelines
 
-### `yarn build`
+### All components must be written as functional components (No class components allowed):
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React from "react";
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+const example = () => {
+  return <div>Hello World</div>;
+};
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### All components are imported & exported utilizing named exports
 
-### `yarn eject`
+### Import:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```jsx
+import { MyComponent } from "../myComponent/myComponent";
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Export:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```jsx
+export const MyComponent = () => {
+  return <div>Hello World</div>;
+};
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Steps:
 
-## Learn More
+### 1. Create a UserCard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+?? FIX
+Look in the blah folder to see an image of the finished project, as you can see the UserCard consists of an Avatar, 2x Text blocks showing Name and Age and a View Profile Button
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Create a userCard.js file inside the src/components/userCard directory
+- Export the component as `UserCard`
+- The `UserCard` should take in the following props: -`profileImage` -`firstName` -`lastName` -`age` -`setActiveUserIndex`
+- Create a userCard.css file inside the src/components/userCard directory and import it into the `UserCard`
+- Import the following components from the src/components directory
 
-### Code Splitting
+```jsx
+    <Text />
+    <Button />
+    <Avatar />
+    <Card />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- The `Card` component will be the `UserCard`'s main wrapper, all of the other components will be the `Card`'s children
+  - Add/Pass the following props to each of the components:
 
-### Analyzing the Bundle Size
+```jsx
+      <Avatar image={profileImage} size="medium" />
+      // First text block to hold the users name
+      <Text tag="p">{`${firstName} ${lastName}`}</Text>
+      // Second text block to hold the users age
+      <Text tag="p">{!age ? "No Birthdate Entered" : `${age} Years Old`}</Text>
+       <Button
+            onClick={setActiveUserIndex}
+            size="medium"
+            title="View Profile"
+          />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- The inner elements should be positioned the following way: - 32px from the top of the `Card` to the top of the `Avatar` - 16px from the bottom of the `Avatar` to the top of the first `Text` component - 8px from the bottom of the first `Text` component to the second one - 16px from the bottom of the second `Text` component to the top of the button - 16px from the bottom of the `Button` to the bottom of the `Card` - All of them should be centered horizontally
+- An image of the finished userCard can be found at src/assets/userCard.png
 
-### Making a Progressive Web App
+### 2. Display the UserCards in a Grid
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Go to App.js found in the src directory
+- Import the `UserCard` component that you just created
+- You will see a users array being imported from the data directory
+- The data is shaped like so:
 
-### Advanced Configuration
+```json
+[
+    {
+    "_id": string,
+    "index": number,
+    "profileImage": string,
+    "age": number,
+    "firstName": string,
+    "lastName": string,
+    "about": string,
+    "posts": number,
+    "followers:" [
+        {
+            "id": number,
+            "name": string,
+            "profileImage": string
+        }
+    ],
+    "following": [
+        {
+            "id": number,
+            "name": string,
+            "profileImage": string,
+            "rating": number
+        }
+    ]
+]
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Map over this array and return the `UserCard` component feeding the appropriate data to each prop
+  - \*Note\* - you will need to pass the index of each user to the setActiveUserIndex state, it can be achieved like so:
 
-### Deployment
+```jsx
+    <UserCard setActiveUserIndex={() => setActiveUserIndex(index)} {...feed the rest of your props the users data} />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- An image of the finished grid can be found at src/assets/gridFinished.png
 
-### `yarn build` fails to minify
+### 3. Finish the Expanded User Card
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- The expanded user card is almost complete, we just need to display the users top 5 rated people they are following
+- The users following array stores objects with id, name, profileImage and rating keys, find the top 5 rated friends in this array
+- Map over these top 5 users inside the <div> with the className="topFriendsList" (There is a note here with instructions on what to return for each friend)
+- An image of the finished expandedCard can be found at src/assets/expandedCardFinished.png

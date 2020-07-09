@@ -26,10 +26,13 @@ export const ExpandedUserCard = ({ user }) => {
           </div>
           <div className="topFriendsList">
             {/* Pull the top 5 rated people from the users following array and display them here */}
-            {/* <div className="topFriend" key={follow.id}>
-              <Text Text tag="span">{follow.name}</Text>
-              <Avatar size="small" image={follow.profileImage} />
-            </div> */}
+            {/* Return the follow for each top rated friend:
+
+                  <div className="topFriend" key={follow.id}>
+                    <Text Text tag="span">{follow.name}</Text>
+                    <Avatar size="small" image={follow.profileImage} />
+                  </div>
+            */}
           </div>
         </div>
       </div>
