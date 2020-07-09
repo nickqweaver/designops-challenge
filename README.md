@@ -49,9 +49,6 @@ export const MyComponent = () => {
 
 ### 1. Create a UserCard
 
-?? FIX
-Look in the blah folder to see an image of the finished project, as you can see the UserCard consists of an Avatar, 2x Text blocks showing Name and Age and a View Profile Button
-
 - Create a userCard.js file inside the src/components/userCard directory
 - Export the component as `UserCard`
 - The `UserCard` should take in the following props: -`profileImage` -`firstName` -`lastName` -`age` -`setActiveUserIndex`
