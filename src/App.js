@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 // Users data here
 import users from "./data/users.json";
-import { ExpandedUserCard } from "./components/expandedCard/expandedUserCard";
+import { ExpandedUserCard } from "./components/expandedCard/expandedCard";
 import { Grid } from "./components/grid/grid";
 import { Modal } from "./components/modal/modal";
 

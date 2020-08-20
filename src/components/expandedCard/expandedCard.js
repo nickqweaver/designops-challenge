@@ -3,7 +3,7 @@ import { Card } from "../card/card";
 import { Avatar } from "../avatar/avatar";
 import { Text } from "../text/text";
 import { Stat } from "../stat/stat";
-import "./expandedUserCard.css";
+import "./expandedCard.css";
 
 export const ExpandedUserCard = ({ user }) => {
   return (
