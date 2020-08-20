@@ -12,7 +12,7 @@ function App() {
     <div className="app">
       <Grid>
         {/* Map over users array and return a UserCard for each here (pass in the appropriate data)}*/}
-        <h1>Welcome Remove me to get started</h1>
+        
       </Grid>
       {activeUserIndex > -1 && (
         <Modal onClose={() => setActiveUserIndex(-1)}>
