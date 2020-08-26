@@ -8,22 +8,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 48px 0px 0px 20px;
+  padding: 48px 0px 0px 8px;
+  
 }
 .nameContainer {
-  padding: 16px 16px 8px 0px;
+  padding: 16px 0px 0px 0px;
   width: 100%;
+
 }
 .statisticsContainer {
   width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px;
+  padding-left: 20px;
  
 }
 .topFriendsContainer {
-  padding: 8px 26px;
+  padding: 0px 16px 16px 16px;
+  margin-left: 23px;
   
 }
 .topFriendsList {
@@ -35,9 +38,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 0px 3px 0px;
+  padding: 0px 0px 6px 1px;
+  width: 30%;
   
 }
 .titleContainer {
-  padding-left: 8px;
+  padding-right: 8px;
 }
